@@ -12,7 +12,13 @@ config_version=5
 
 config/name="godot-space-ace"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/stretch/mode="canvas_items"
 
 [rendering]
 
