@@ -98,10 +98,13 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2.6),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
+"method": &"set_shooting"
+}, {
+"args": [false],
 "method": &"set_shooting"
 }]
 }
