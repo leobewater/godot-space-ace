@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkmeqcrsmdy3e"]
+[gd_scene load_steps=3 format=3 uid="uid://dkmeqcrsmdy3e"]
 
 [ext_resource type="PackedScene" uid="uid://dr482dnw04lsw" path="res://enemies/enemy_basic.tscn" id="1_oaxrb"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qyjh6"]
+radius = 11.0
+
 [node name="EnemyBio" instance=ExtResource("1_oaxrb")]
 shoots = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_qyjh6")
