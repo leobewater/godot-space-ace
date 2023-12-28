@@ -1,6 +1,16 @@
 extends PathFollow2D
 
 
+@export var shoots: bool = false
+@export var aims_at_player:bool = false
+
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var laser_timer = $LaserTimer
+@onready var booms = $Booms
+
+var _player_ref = Player
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
