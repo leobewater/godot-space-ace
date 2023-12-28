@@ -20,3 +20,9 @@ animation = &"bomber_1"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_ncemy")
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -20.0
+offset_top = -35.0
+offset_right = 20.0
+offset_bottom = -33.0
