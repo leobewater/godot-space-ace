@@ -42,6 +42,16 @@ func _process(delta):
 		queue_free()
 
 
+func update_bullet_direction() -> void:
+	# check if player still exists
+	if (aims_at_player == false or is_instance_valid(_player_ref)) :
+		false
+	
+	bullet_direction = global_position.direction_to(
+		_player_ref.global_position
+	)
+	
+	
 func start_shoot_timer() -> void:
 	laser_timer.wait_time = bullet_wait_time
 	laser_timer.start()
@@ -49,6 +59,7 @@ func start_shoot_timer() -> void:
 
 func shoot() -> void:
 	var b = bullet_scene.instantiate()
+	update_bullet_direction()
 	b.setup(
 		global_position,
 		bullet_direction,
