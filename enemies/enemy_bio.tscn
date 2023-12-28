@@ -17,6 +17,12 @@ bullet_wait_time_var = 0.1
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_qyjh6")
 
+[node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
+position = Vector2(0, 16)
+
+[node name="Marker2D2" type="Marker2D" parent="Booms" index="1"]
+position = Vector2(0, -6)
+
 [node name="HealthBar" parent="." index="5"]
 offset_left = -16.0
 offset_top = -17.0
