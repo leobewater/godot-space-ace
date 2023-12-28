@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5o5v2mi23ph"]
+[gd_scene load_steps=14 format=3 uid="uid://b5o5v2mi23ph"]
 
 [ext_resource type="Script" path="res://enemies/saucer.gd" id="1_oidx6"]
 [ext_resource type="Texture2D" uid="uid://bpolhid5lw03d" path="res://assets/ships/saucer_2.png" id="1_upb3n"]
@@ -99,6 +99,26 @@ _data = {
 "spin": SubResource("Animation_wb0tf")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6tt4j"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pqw0j"]
+animation = &"spin"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f7tev"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ncy5s"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cpcul"]
+states/shoot/node = SubResource("AnimationNodeAnimation_6tt4j")
+states/shoot/position = Vector2(574, 100)
+states/spin/node = SubResource("AnimationNodeAnimation_pqw0j")
+states/spin/position = Vector2(376, 100)
+transitions = ["Start", "spin", SubResource("AnimationNodeStateMachineTransition_f7tev"), "shoot", "spin", SubResource("AnimationNodeStateMachineTransition_ncy5s")]
+
 [node name="Saucer" type="PathFollow2D"]
 rotates = false
 script = ExtResource("1_oidx6")
@@ -140,3 +160,10 @@ autoplay = "spin"
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_f2ewm")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ssva5")
+}
+tree_root = SubResource("AnimationNodeStateMachine_cpcul")
+anim_player = NodePath("../AnimationPlayer")
