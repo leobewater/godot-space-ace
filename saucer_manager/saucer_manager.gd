@@ -1,11 +1,27 @@
 extends Node2D
 
+var saucer_scene: PackedScene = preload("res://enemies/saucer.tscn")
 
-# Called when the node enters the scene tree for the first time.
+
+const WAIT_TIME: float = 8.0
+const WAIT_VAR: float = 1.0
+
+
+@onready var timer = $Timer
+@onready var paths = $Paths.get_children()
+
+
 func _ready():
-	pass # Replace with function body.
+	spawn_saucer()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func spawn_saucer() -> void:
+	# get random path
+	var p = paths.pick_random()
+	var s = saucer_scene.instantiate()
+	p.add_child(s)
+	Utils.set_and_start_timer(timer, WAIT_TIME, WAIT_VAR)
+	
+	
+func _on_timer_timeout():
+	spawn_saucer()

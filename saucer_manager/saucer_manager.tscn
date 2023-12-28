@@ -27,3 +27,5 @@ curve = SubResource("Curve2D_4ag1o")
 
 [node name="Path2D2" type="Path2D" parent="Paths"]
 curve = SubResource("Curve2D_qxtqe")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
