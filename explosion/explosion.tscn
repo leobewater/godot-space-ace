@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://nrf15qthcyjl"]
+[gd_scene load_steps=6 format=3 uid="uid://nrf15qthcyjl"]
 
 [ext_resource type="Texture2D" uid="uid://ccsm3xab410d3" path="res://assets/misc/exp2_0.png" id="1_7vqmi"]
+[ext_resource type="Script" path="res://explosion/explosion.gd" id="1_fhmxn"]
 
 [sub_resource type="Animation" id="Animation_bfnaa"]
 resource_name = "explode"
@@ -40,6 +41,7 @@ _data = {
 }
 
 [node name="Explosion" type="Node2D"]
+script = ExtResource("1_fhmxn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
@@ -53,3 +55,7 @@ libraries = {
 "": SubResource("AnimationLibrary_veq7w")
 }
 autoplay = "explode"
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
