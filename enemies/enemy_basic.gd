@@ -2,7 +2,7 @@ extends PathFollow2D
 
 
 @export var shoots: bool = false
-@export var aims_at_player:bool = false
+@export var aims_at_player: bool = false
 @export var bullet_scene: PackedScene
 @export var bullet_damage: int = 10
 @export var bullet_speed: float = 120.0
@@ -44,9 +44,9 @@ func _process(delta):
 
 func update_bullet_direction() -> void:
 	# check if player still exists
-	if (aims_at_player == false or is_instance_valid(_player_ref)) :
-		false
-	
+	if (aims_at_player == false or is_instance_valid(_player_ref) == false):
+		return
+
 	bullet_direction = global_position.direction_to(
 		_player_ref.global_position
 	)

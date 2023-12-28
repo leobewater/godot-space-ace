@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkmeqcrsmdy3e"]
 
 [ext_resource type="PackedScene" uid="uid://dr482dnw04lsw" path="res://enemies/enemy_basic.tscn" id="1_oaxrb"]
-[ext_resource type="PackedScene" uid="uid://tk0g1p0e7pwf" path="res://enemy_bullet/enemy_bullet.tscn" id="2_72edv"]
+[ext_resource type="PackedScene" uid="uid://tk0g1p0e7pwf" path="res://base_bullet/enemy_bullet/enemy_bullet.tscn" id="2_vvq8t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qyjh6"]
 radius = 11.0
 
 [node name="EnemyBio" instance=ExtResource("1_oaxrb")]
 shoots = true
-bullet_scene = ExtResource("2_72edv")
+bullet_scene = ExtResource("2_vvq8t")
 bullet_speed = 160.0
 bullet_wait_time = 1.5
 
