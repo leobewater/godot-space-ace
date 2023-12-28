@@ -18,18 +18,6 @@ script = ExtResource("1_ffq8v")
 [node name="Player" parent="." instance=ExtResource("3_75y7b")]
 position = Vector2(323, 444)
 
-[node name="EnemyZipper" parent="." instance=ExtResource("4_bjpik")]
-position = Vector2(95, 61)
-rotates = true
-
-[node name="EnemyBomber" parent="." instance=ExtResource("5_ygsbw")]
-position = Vector2(324, 78)
-rotates = true
-
-[node name="EnemyBio" parent="." instance=ExtResource("6_ypa74")]
-position = Vector2(564, 70)
-rotates = true
-
 [node name="WaveManager" parent="." instance=ExtResource("7_w36hh")]
 
 [node name="EnemyBullet" parent="." instance=ExtResource("9_32i7k")]
@@ -39,3 +27,12 @@ collision_layer = 1
 [node name="EnemyBomb" parent="." instance=ExtResource("10_twdbi")]
 position = Vector2(578, 421)
 collision_layer = 1
+
+[node name="EnemyBio" parent="." instance=ExtResource("6_ypa74")]
+position = Vector2(187, 101)
+
+[node name="EnemyZipper" parent="." instance=ExtResource("4_bjpik")]
+position = Vector2(557, 104)
+
+[node name="EnemyBomber" parent="." instance=ExtResource("5_ygsbw")]
+position = Vector2(361, 100)
