@@ -4,7 +4,9 @@ extends Node
 enum ENEMY_TYPE { ZIPPER, BIO, BOMBER }
 enum POWERUP_TYPE { HEALTH, SHIELD }
 
-const GROUP_PLAYER: string = "player"
+
+const GROUP_PLAYER: String = "player"
+
 
 const POWER_UPS = {
 	POWERUP_TYPE.HEALTH: preload("res://assets/misc/powerupGreen_bolt.png"),

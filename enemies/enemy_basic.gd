@@ -8,17 +8,31 @@ extends PathFollow2D
 @onready var laser_timer = $LaserTimer
 @onready var booms = $Booms
 
-var _player_ref = Player
+
+var _player_ref: Player
+var _speed: float
+var _can_shoot: bool = false
+var _dead: bool = false
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	_player_ref = get_tree().get_first_node_in_group(GameData.GROUP_PLAYER)
+	if !_player_ref: 
+		queue_free()
+	animated_sprite_2d.play()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func setup(speed: float, anim_name: String) -> void:
+	_speed = speed
+	animated_sprite_2d.animation = anim_name
+	
+
 func _process(delta):
-	pass
+	# progress_ratio is object moving on the path progress
+	progress_ratio += _speed * delta
+	
+	if progress_ratio > 0.99:
+		queue_free()
 
 
 func _on_laser_timer_timeout():
@@ -30,7 +44,8 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	pass # Replace with function body.
+	set_process(false)
+	queue_free()
 
 
 func _on_hit_box_area_entered(area):
