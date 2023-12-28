@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://6sil7mxbqfwt"]
+
+[ext_resource type="PackedScene" uid="uid://dr482dnw04lsw" path="res://enemies/enemy_basic.tscn" id="1_dqeta"]
+
+[node name="EnemyBomber" instance=ExtResource("1_dqeta")]
+shoots = true
+aims_at_player = true
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"bomber_1"

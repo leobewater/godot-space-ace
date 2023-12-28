@@ -316,7 +316,7 @@ script = ExtResource("1_kg0eg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wqm4b")
-animation = &"zipper_2"
+animation = &"biomech_1"
 
 [node name="LaserTimer" type="Timer" parent="."]
 one_shot = true
