@@ -21,13 +21,18 @@ func setup(pos: Vector2, dir: Vector2, sp: float, dmg: int) -> void:
 	global_position = pos
 
 
+# explosion not folling enemy
 func blow_up(area: Node2D) -> void:
-	pass
+	var net_position= global_position - area.global_position
+	ObjectMaker.create_explosion(net_position, area)
+	set_process(false)
+	queue_free()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 
+# when bullet collides
 func _on_area_entered(area):
 	blow_up(area)
