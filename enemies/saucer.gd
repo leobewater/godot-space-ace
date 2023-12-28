@@ -19,6 +19,7 @@ func _ready():
 func _process(delta):
 	if _shooting == false:
 		progress_ratio += SPEED * delta
+		try_shoot()
 
 
 func update_shots_fired() -> void:
@@ -32,6 +33,7 @@ func try_shoot() -> void:
 	if abs(progress_ratio - FIRE_OFFSETS[_shots_fired]) < SHOOT_PROGRESS:
 		# tell animationTree to travel to shoot
 		state_machine.travel("shoot")
+		update_shots_fired()
 
 
 func set_shooting(v: bool) -> void:
