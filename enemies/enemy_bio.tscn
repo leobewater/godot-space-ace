@@ -11,6 +11,7 @@ shoots = true
 bullet_scene = ExtResource("2_vvq8t")
 bullet_speed = 160.0
 bullet_wait_time = 1.5
+bullet_wait_time_var = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(0, 5)
