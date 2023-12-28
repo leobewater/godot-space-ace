@@ -317,6 +317,7 @@ script = ExtResource("1_kg0eg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wqm4b")
 animation = &"biomech_1"
+flip_v = true
 
 [node name="LaserTimer" type="Timer" parent="."]
 one_shot = true
