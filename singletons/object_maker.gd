@@ -8,7 +8,8 @@ const SIMPLE_SCENES = {
 	SCENE_KEY.EXPLOSION: preload("res://explosion/explosion.tscn"),
 	SCENE_KEY.BOOM: preload("res://boom/boom.tscn")
 }
-	
+
+const POWER_UP_SCENE = preload("res://power_up/power_up.tscn")
 	
 # make explosion and boom follow the define parent enemy
 func add_child_deferred(child_to_add, parent: Node2D) -> void:
@@ -31,3 +32,10 @@ func create_explosion(start_pos: Vector2, parent: Node2D) -> void:
 	
 func create_boom(start_pos: Vector2) -> void:
 	create_simple_scene(start_pos, SCENE_KEY.BOOM, get_tree().current_scene)
+
+
+func create_power_up(start_pos: Vector2, pu_type: GameData.POWERUP_TYPE) -> void:
+	var pu = POWER_UP_SCENE.instantiate()
+	pu.global_position = start_pos
+	pu.set_power_up_type(pu_type)
+	call_add_child(pu, get_tree().current_scene)
