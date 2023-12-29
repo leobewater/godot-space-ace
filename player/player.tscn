@@ -1,11 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0fijbpwfbj1a"]
+[gd_scene load_steps=10 format=3 uid="uid://c0fijbpwfbj1a"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_gfb1o"]
 [ext_resource type="Texture2D" uid="uid://cl0axrdwfjcjw" path="res://assets/ships/ships_human_1.png" id="1_ox5k3"]
 [ext_resource type="PackedScene" uid="uid://bsekgvw78ggdm" path="res://base_bullet/player_bullet/player_bullet.tscn" id="2_ehedw"]
+[ext_resource type="PackedScene" uid="uid://ehg0dic7bxsg" path="res://shield/shield.tscn" id="4_fh2fr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pnn4t"]
 radius = 13.8924
+
+[sub_resource type="Animation" id="Animation_3jupb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_p02ra"]
 resource_name = "fly"
@@ -22,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_3jupb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_o18v8"]
@@ -78,5 +79,7 @@ libraries = {
 "": SubResource("AnimationLibrary_ref2d")
 }
 autoplay = "fly"
+
+[node name="Shield" parent="." instance=ExtResource("4_fh2fr")]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
