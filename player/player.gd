@@ -6,6 +6,7 @@ class_name Player
 
 @onready var sprite_2d = $Sprite2D
 @onready var animation_player = $AnimationPlayer
+@onready var shield = $Shield
 
 
 @export var bullet_scene: PackedScene
@@ -79,6 +80,8 @@ func shoot() -> void:
 
 func on_powerup_hit(power_up: GameData.POWERUP_TYPE) -> void:
 	print("power_up: ", power_up)
+	if power_up == GameData.POWERUP_TYPE.SHIELD:
+		shield.enable_shield()
 
 
 func _on_area_entered(area):
