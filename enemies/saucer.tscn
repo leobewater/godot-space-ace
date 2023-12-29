@@ -7,23 +7,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_utcrj"]
 radius = 36.0
 
-[sub_resource type="Animation" id="Animation_wb0tf"]
-resource_name = "spin"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox/Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-
 [sub_resource type="Animation" id="Animation_pkmex"]
 length = 0.001
 tracks/0/type = "value"
@@ -98,15 +81,35 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.2, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [true],
 "method": &"set_shooting"
 }, {
+"args": [],
+"method": &"shoot"
+}, {
 "args": [false],
 "method": &"set_shooting"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_wb0tf"]
+resource_name = "spin"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ssva5"]
