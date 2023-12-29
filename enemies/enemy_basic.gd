@@ -10,6 +10,9 @@ extends PathFollow2D
 @export var bullet_wait_time: float = 3.0
 @export var bullet_wait_time_var: float = 0.05 # variation
 
+@export var kill_me_score: int = 10
+@export var damage_taken: int = 10
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var laser_timer = $LaserTimer
 @onready var booms = $Booms
