@@ -15,6 +15,7 @@ class_name Player
 @export var bullet_damage: int = 10
 @export var bullet_direction: Vector2 = Vector2.UP
 
+@export var health_boost: int = 50
 
 # margin around the screen
 const MARGIN: float = 32.0
@@ -82,7 +83,8 @@ func on_powerup_hit(power_up: GameData.POWERUP_TYPE) -> void:
 	print("power_up: ", power_up)
 	if power_up == GameData.POWERUP_TYPE.SHIELD:
 		shield.enable_shield()
-
+	elif power_up == GameData.POWERUP_TYPE.HEALTH:
+		SignalManager.on_player_health_bonus.emit(health_boost)
 
 # collides with enemy ships, bullets or saucers
 func _on_area_entered(area):

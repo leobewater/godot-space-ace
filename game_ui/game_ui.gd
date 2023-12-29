@@ -25,4 +25,4 @@ func on_player_health_bonus(v: int) -> void:
 func _on_health_bar_died():
 	# player died
 	SignalManager.on_player_died.emit()
-	GameManager.load_main_scene()
+	# GameManager.load_main_scene()

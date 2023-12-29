@@ -38,7 +38,8 @@ func spawn_wave() -> void:
 	var anim = ANIM_FRAMES[en_type].pick_random()
 	
 	for num in range(4):
-		path.add_child(create_enemy(0.2, anim, en_type))
+		# create enemy with enemy speed
+		path.add_child(create_enemy(0.14, anim, en_type))
 		# delay 1s
 		await get_tree().create_timer(1).timeout
 
