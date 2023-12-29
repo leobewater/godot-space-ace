@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ehg0dic7bxsg"]
+
+[ext_resource type="Texture2D" uid="uid://cd7c036ru53hr" path="res://assets/shield/spr_shield_small.png" id="1_log6k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pgqgi"]
+radius = 32.0156
+
+[node name="Shield" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pgqgi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_log6k")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
