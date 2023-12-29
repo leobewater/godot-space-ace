@@ -312,7 +312,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EnemyBasic" type="PathFollow2D"]
+[node name="EnemyBasic" type="PathFollow2D" groups=["enemy_ship"]]
 rotates = false
 script = ExtResource("1_kg0eg")
 

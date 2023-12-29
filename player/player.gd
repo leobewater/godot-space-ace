@@ -84,5 +84,7 @@ func on_powerup_hit(power_up: GameData.POWERUP_TYPE) -> void:
 		shield.enable_shield()
 
 
+# collides with enemies or something else
 func _on_area_entered(area):
 	print("PLAYER ENTERED: ", area)
+	
