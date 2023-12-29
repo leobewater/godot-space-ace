@@ -18,6 +18,7 @@ extends PathFollow2D
 @onready var laser_timer = $LaserTimer
 @onready var booms = $Booms
 @onready var health_bar = $HealthBar
+@onready var sound = $Sound
 
 
 var _player_ref: Player
@@ -71,6 +72,7 @@ func shoot() -> void:
 		bullet_damage
 	)
 	get_tree().current_scene.add_child(b)
+	SoundManager.play_laser_random(sound)
 	start_shoot_timer()
 	
 
