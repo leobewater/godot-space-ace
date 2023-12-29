@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cikbhvrghhkw2"]
+[gd_scene load_steps=4 format=3 uid="uid://cikbhvrghhkw2"]
 
+[ext_resource type="Script" path="res://game_ui/game_ui.gd" id="1_ay06x"]
 [ext_resource type="PackedScene" uid="uid://blddmb063eia0" path="res://health_bar/health_bar.tscn" id="1_b08c8"]
 [ext_resource type="LabelSettings" uid="uid://b0ut4waw04347" path="res://assets/GM_32_White.tres" id="2_b772w"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ay06x")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -44,3 +46,5 @@ text = "00000"
 label_settings = ExtResource("2_b772w")
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[connection signal="died" from="ColorRect/MC/HB/HealthBar" to="." method="_on_health_bar_died"]
