@@ -86,6 +86,7 @@ func die() -> void:
 	
 	set_process(false)
 	make_booms()
+	ScoreManager.increment_score(kill_me_score)
 	queue_free()
 
 
@@ -105,7 +106,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 # collides with player self or player's bullets
 func _on_hit_box_area_entered(area):
-	health_bar.take_damage(20)
+	health_bar.take_damage(damage_taken)
 
 
 func _on_health_bar_died():
