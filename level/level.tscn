@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cav5qa85da64p"]
+[gd_scene load_steps=11 format=3 uid="uid://cav5qa85da64p"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_ffq8v"]
 [ext_resource type="PackedScene" uid="uid://daksfrbr5ofxr" path="res://level_bg/level_bg.tscn" id="2_1qi5g"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dhuulak4okfy0" path="res://wave_manager/wave_manager.tscn" id="7_w36hh"]
 [ext_resource type="PackedScene" uid="uid://ddl4ryriotf6j" path="res://game_over/game_over.tscn" id="8_jhctb"]
 [ext_resource type="PackedScene" uid="uid://dyokf1wtnx2dk" path="res://shake_cam/shake_camera.tscn" id="8_s8pui"]
+[ext_resource type="AudioStream" uid="uid://drjedxl0425ow" path="res://assets/sounds/loops/Mercury.wav" id="10_p6x8u"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ffq8v")
@@ -33,3 +34,8 @@ position = Vector2(205, 194)
 
 [node name="ShakeCam" parent="." instance=ExtResource("8_s8pui")]
 anchor_mode = 0
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_p6x8u")
+volume_db = -6.0
+autoplay = true
