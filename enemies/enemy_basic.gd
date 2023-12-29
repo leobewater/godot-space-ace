@@ -69,7 +69,7 @@ func shoot() -> void:
 		bullet_speed,
 		bullet_damage
 	)
-	get_tree().root.add_child(b)
+	get_tree().current_scene.add_child(b)
 	start_shoot_timer()
 	
 

@@ -49,7 +49,7 @@ func set_shooting(v: bool) -> void:
 
 func shoot() -> void:
 	var missile = missile_scene.instantiate()
-	get_tree().root.add_child(missile)
+	get_tree().current_scene.add_child(missile)
 	missile.global_position = global_position
 
 

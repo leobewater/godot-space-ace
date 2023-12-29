@@ -75,7 +75,7 @@ func shoot() -> void:
 	var bullet = bullet_scene.instantiate()
 	bullet.setup(global_position, bullet_direction, bullet_speed, bullet_damage)
 	# add bullets to the player if player dies, bullet will disappear
-	get_tree().root.add_child(bullet)
+	get_tree().current_scene.add_child(bullet)
 
 
 func on_powerup_hit(power_up: GameData.POWERUP_TYPE) -> void:
