@@ -11,6 +11,11 @@ const SIMPLE_SCENES = {
 
 const POWER_UP_SCENE = preload("res://power_up/power_up.tscn")
 	
+	
+func get_random_powerup():
+	return GameData.POWER_UPS.keys().pick_random()
+	
+	
 # make explosion and boom follow the define parent enemy
 func add_child_deferred(child_to_add, parent: Node2D) -> void:
 	parent.add_child(child_to_add)
@@ -39,3 +44,7 @@ func create_power_up(start_pos: Vector2, pu_type: GameData.POWERUP_TYPE) -> void
 	pu.global_position = start_pos
 	pu.set_power_up_type(pu_type)
 	call_add_child(pu, get_tree().current_scene)
+
+
+func create_random_power_up(start_pos: Vector2) -> void:
+	create_power_up(start_pos, get_random_powerup())

@@ -12,8 +12,8 @@ const SPEED: float = 0.08
 const SHOOT_PROGRESS: float = 0.02 # progress margin
 const FIRE_OFFSETS = [0.25, 0.5, 0.75] # shoot at 25%, 50%, 75% on the path progress
 const BOOM_DELAY: float = 0.15
-const HIT_DAMAGE: float = 40
-const SCORE: float = 150
+const HIT_DAMAGE: int = 40
+const SCORE: int = 150
 
 var _shooting: bool = false
 var _shots_fired: int = 0  # index for FIRE_OFFSETS
