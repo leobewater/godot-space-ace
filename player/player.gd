@@ -78,8 +78,8 @@ func shoot() -> void:
 
 
 func on_powerup_hit(power_up: GameData.POWERUP_TYPE) -> void:
-	print("power_up:", power_up)
+	print("power_up: ", power_up)
 
 
 func _on_area_entered(area):
-	print("PLAYER ENTERED")
+	print("PLAYER ENTERED: ", area)
