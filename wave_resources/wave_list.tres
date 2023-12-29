@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="WaveListResource" load_steps=5 format=3 uid="uid://c23o4wh2511jl"]
+
+[ext_resource type="Script" path="res://wave_resources/wave_list_resource.gd" id="1_2kjur"]
+[ext_resource type="Resource" uid="uid://cq6rf5e5tl4hj" path="res://wave_resources/wave_1.tres" id="2_gys2l"]
+[ext_resource type="Resource" uid="uid://citj5cxfcutrr" path="res://wave_resources/wave_2.tres" id="3_qjrlu"]
+[ext_resource type="Resource" uid="uid://dgqftbsmojuu6" path="res://wave_resources/wave_3.tres" id="4_f33hq"]
+
+[resource]
+script = ExtResource("1_2kjur")
+waves = Array[Resource("res://wave_resources/wave_resource.gd")]([ExtResource("2_gys2l"), ExtResource("3_qjrlu"), ExtResource("4_f33hq"), null, null, null])
+wave_gap = 8.0
+speed_factor = 1.0

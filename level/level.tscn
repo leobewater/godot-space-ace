@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dbe5esj5cmq62" path="res://saucer_manager/saucer_manager.tscn" id="5_yfxgi"]
 [ext_resource type="PackedScene" uid="uid://drbw6mx2kyigd" path="res://power_up/power_up.tscn" id="6_ns738"]
 [ext_resource type="PackedScene" uid="uid://cikbhvrghhkw2" path="res://game_ui/game_ui.tscn" id="7_fyhmq"]
-[ext_resource type="PackedScene" uid="uid://dhuulak4okfy0" path="res://wave_manager/wave_manager.tscn" id="7_w36hh"]
+[ext_resource type="PackedScene" uid="uid://w6s6q757bhdj" path="res://wave_manager/wave_manager.tscn" id="7_w36hh"]
 [ext_resource type="PackedScene" uid="uid://ddl4ryriotf6j" path="res://game_over/game_over.tscn" id="8_jhctb"]
 [ext_resource type="PackedScene" uid="uid://dyokf1wtnx2dk" path="res://shake_cam/shake_camera.tscn" id="8_s8pui"]
 [ext_resource type="AudioStream" uid="uid://drjedxl0425ow" path="res://assets/sounds/loops/Mercury.wav" id="10_p6x8u"]
