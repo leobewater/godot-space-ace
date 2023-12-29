@@ -6,6 +6,7 @@ enum POWERUP_TYPE { HEALTH, SHIELD }
 
 
 const GROUP_PLAYER: String = "player"
+const GROUP_HOMING_MISSILE: String = "homing_missile"
 
 
 const POWER_UPS = {
