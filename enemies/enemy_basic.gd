@@ -70,7 +70,7 @@ func shoot() -> void:
 	start_shoot_timer()
 	
 
-# creats booms in multiple locations for each enemy
+# creats booms for multiple Marker2D
 func make_booms() -> void:
 	for b in booms.get_children():
 		ObjectMaker.create_boom(b.global_position)

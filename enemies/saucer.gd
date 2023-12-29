@@ -2,12 +2,18 @@ extends PathFollow2D
 
 var missile_scene: PackedScene = preload("res://missile/homing_missile.tscn")
 
+
 @onready var state_machine = $AnimationTree["parameters/playback"]
+@onready var health_bar = $HealthBar
+@onready var booms = $Booms
 
 
 const SPEED: float = 0.08
 const SHOOT_PROGRESS: float = 0.02 # progress margin
 const FIRE_OFFSETS = [0.25, 0.5, 0.75] # shoot at 25%, 50%, 75% on the path progress
+const BOOM_DELAY: float = 0.15
+const HIT_DAMAGE: float = 40
+
 
 var _shooting: bool = false
 var _shots_fired: int = 0  # index for FIRE_OFFSETS
@@ -45,3 +51,26 @@ func shoot() -> void:
 	var missile = missile_scene.instantiate()
 	get_tree().root.add_child(missile)
 	missile.global_position = global_position
+
+
+func die() -> void:
+	queue_free()
+	
+	
+# creats booms for multiple Marker2D
+func make_booms() -> void:
+	for b in booms.get_children():
+		ObjectMaker.create_boom(b.global_position)
+		# add timeout between each boom
+		await get_tree().create_timer(BOOM_DELAY).timeout
+	
+	
+func _on_health_bar_died():
+	# disconnect this signal after the saucer died
+	health_bar.disconnect("died", _on_health_bar_died)
+	# travel animation to death
+	state_machine.travel("death")
+
+
+func _on_hit_box_area_entered(area):
+	health_bar.take_damage(HIT_DAMAGE)

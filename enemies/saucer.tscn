@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5o5v2mi23ph"]
+[gd_scene load_steps=16 format=3 uid="uid://b5o5v2mi23ph"]
 
 [ext_resource type="Script" path="res://enemies/saucer.gd" id="1_oidx6"]
 [ext_resource type="Texture2D" uid="uid://bpolhid5lw03d" path="res://assets/ships/saucer_2.png" id="1_upb3n"]
 [ext_resource type="AudioStream" uid="uid://cfy0ticbk7ovy" path="res://assets/sounds/misc/sci-fi-door.wav" id="3_f2ewm"]
+[ext_resource type="PackedScene" uid="uid://blddmb063eia0" path="res://health_bar/health_bar.tscn" id="4_re3h2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_utcrj"]
 radius = 36.0
@@ -44,6 +45,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBox/Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_3hc58"]
@@ -112,9 +125,46 @@ tracks/0/keys = {
 "values": [0.0, 6.28319]
 }
 
+[sub_resource type="Animation" id="Animation_r8clp"]
+resource_name = "death"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox/Sprite2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.0156863, 1, 1), Color(1, 0.0156863, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [false],
+"method": &"set_process"
+}, {
+"args": [],
+"method": &"make_booms"
+}, {
+"args": [],
+"method": &"die"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ssva5"]
 _data = {
 "RESET": SubResource("Animation_pkmex"),
+"death": SubResource("Animation_r8clp"),
 "shoot": SubResource("Animation_3hc58"),
 "spin": SubResource("Animation_wb0tf")
 }
@@ -187,3 +237,12 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_cpcul")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="HealthBar" parent="." instance=ExtResource("4_re3h2")]
+offset_left = -30.0
+offset_top = -40.0
+offset_right = 30.0
+offset_bottom = -37.0
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]
